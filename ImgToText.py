@@ -46,7 +46,7 @@ while True:
     
     # Read image from which text needs to be extracted
     val = input("Enter image name with extension: ")
-    img = cv2.imread("F:/PythonApp/firstgui/img/"+val)
+    img = cv2.imread("F:/PythonApp/LicensePlateProject/LicensePlateProject/img/"+val)
     
     # Convert the image to gray scale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
