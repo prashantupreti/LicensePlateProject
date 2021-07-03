@@ -36,8 +36,10 @@ def compare_imgText_database(text):
     try:
         if(trueFalseRecord.index(True)!=-1):
             print("Matched in Database")
+            return True
     except ValueError:
         print("Not Matched in Database")
+        return False
     
 
 

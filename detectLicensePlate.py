@@ -86,12 +86,17 @@ def getLicensePlateNumber(str):
     text = pytesseract.image_to_string(Cropped, config='--psm 11')
     refineTxt(text)
     print("Detected license plate Number is:",text)
-    compare.compare_imgText_database(text)
     
-    img = cv2.resize(img,(500,300))
-    Cropped = cv2.resize(Cropped,(400,200))
+    matched=compare.compare_imgText_database(text)
+    
+    #Cropped = cv2.resize(Cropped,(400,200))
+    if(matched):
+        added_image = cv2.addWeighted(img,0.4,cv2.imread('check.png'),0.1,0)
+    else:
+        added_image = cv2.addWeighted(img,0.4,cv2.imread('times.png'),0.1,0)
+    img = cv2.resize(added_image,(500,300))
     cv2.imshow('car',img)
-    cv2.imshow('Cropped',Cropped)
+    #cv2.imshow('Cropped',Cropped)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
