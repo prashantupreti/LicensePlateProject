@@ -8,10 +8,10 @@ while True:
     # Connect to MariaDB Platform
     try:
         conn = mariadb.connect(
-            user="root",
-            password="",
+            user="admin",
+            password="admin123",
             host="127.0.0.1",
-            port=3307,
+            port=3306,
             database="test"
 
         )
@@ -41,12 +41,13 @@ while True:
             print("Not Matched in Database")
         #print what was read from the image    
         print(text)
+        
     # Mention the installed location of Tesseract-OCR in your system
-    pytesseract.pytesseract.tesseract_cmd = 'D:/Program Files/Tesseract-OCR/tesseract.exe'
+    #pytesseract.pytesseract.tesseract_cmd = 'D:/Program Files/Tesseract-OCR/tesseract.exe'
     
     # Read image from which text needs to be extracted
     val = input("Enter image name with extension: ")
-    img = cv2.imread("F:/PythonApp/LicensePlateProject/LicensePlateProject/img/"+val)
+    img = cv2.imread("/home/pi/project/img/"+val)
     
     # Convert the image to gray scale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -66,12 +67,13 @@ while True:
         text = text.replace('*', ' ')
         text = text.replace('+', ' ')
         text = text.replace('-', ' ')
-        text = text.replace('', '')
+        #text = text.replace('', '')
         text = text.replace('3°', '')
         text = text.replace('°', '')
         text = text.replace('=', '')
         text = text.replace('sk.', '')
-        text = text.replace('«C', '')
+        text = text.replace('s','')
+        text = text.replace('«OC', '')
         text = text.replace('he Lone Star State itu', '')
         text = text.replace('|', '')
         text = text.replace('"ies', '')
