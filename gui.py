@@ -7,11 +7,11 @@ from ttkthemes import ThemedTk
 # Connect to MariaDB Platform
 try:
     conn = mariadb.connect(
-        user="root",
-        password="",
+        user="admin",
+        password="admin123",
         host="127.0.0.1",
-        port=3307,
-        database="test"
+        port=3306,
+        database="license_plate"
 
     )
 except mariadb.Error as e:
