@@ -7,10 +7,10 @@ from ttkthemes import ThemedTk
 # Connect to MariaDB Platform
 try:
     conn = mariadb.connect(
-        user="root",
-        password="",
+        user="admin",
+        password="admin123",
         host="127.0.0.1",
-        port=3307,
+        port=3306,
         database="test"
 
     )
@@ -31,7 +31,7 @@ def insert_entry_fields():
 #     cur.execute("SELECT * FROM license_plate")
 window = ThemedTk(theme="arc")
 window.title("License Plate GUI")
-window.geometry("300x160")
+window.geometry("350x160")
 ttk.Label(window, text="State Name",justify='center').grid(row=0,padx = 20, pady = 10)
 state_name = ttk.Entry(window)
 state_name.grid(row=0, column=1,padx = 20, pady = 10)
