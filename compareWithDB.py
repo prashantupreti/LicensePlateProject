@@ -1,9 +1,9 @@
-#src: https://www.geeksforgeeks.org/text-detection-and-extraction-using-opencv-and-ocr/
 # Import required packages
 import cv2
 import mariadb
 import sys
 import pytesseract
+import l298n_dc as motor
 # Connect to MariaDB Platform
 try:
     conn = mariadb.connect(
@@ -35,6 +35,7 @@ def compare_imgText_database(text):
     
     try:
         if(trueFalseRecord.index(True)!=-1):
+            motor.runMotor()
             print("Matched in Database")
             return True
     except ValueError:
