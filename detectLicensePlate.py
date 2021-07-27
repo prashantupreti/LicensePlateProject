@@ -87,6 +87,8 @@ def getLicensePlateNumber(val):
             text = text.replace('+',' ')
             text = text.replace('i','')
             text = text.replace('”','')
+            text = text.replace('“','')
+            text = text.replace('H','M')
             print("Detected license plate Number is:",text)
             matched=compare.compare_imgText_database(text)
             
