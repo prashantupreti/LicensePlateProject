@@ -7,7 +7,6 @@ from picamera.array import PiRGBArray as prgb
 from picamera import PiCamera as pc
 import l298n_dc as motor
 #motor.runMotor()
-
 camera.formatTempFile()
 camera.getCameraFrame()
 DIR= "/home/pi/LicensePlateProject/img/temp"
